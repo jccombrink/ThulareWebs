@@ -1,0 +1,98 @@
+<div id = 'accomodation' class = 'content-page row'>
+	<div id = "accomodationLeft" class="col-md-7">
+		<h3>Accomodation</h3>
+		<br>
+		<h6>Thulare Safaris boasts a beautiful hunting camp next to a small dam in the middle of the bushveld. A spectacular wild fig tree canopies over the outside lapa and provides ample bird watching opportunities.</h6>
+		<h6>The African night sky is an absolute must see and a regular visit by the African Wood Owl makes one feel the intensity of the African Bushveld.</h6>
+		<img src="img/accomodation/article/2_large.jpg">
+		<br><br>
+		<h6>The camp has two chalets for guests, a lounge, outside lapa, dining room and fully equipped kitchen to which guests have full access. The two chalets can accomodate two guests each. Each chalet comes with an on-suite bathroom and is fully furnished. The rooms are serviced daily, and laundry services are included.</h6>
+		<img src="img/accomodation/article/2_large.jpg">
+		<br><br>
+		<h6>Both of these chalets have a beautiful view over the dam where game often appear in the afternoons to have a drink.</h6>
+		<img src="img/accomodation/article/2_large.jpg">
+		<br>
+		<p>*Accomodation prices are already included in the daily rates*</p>
+		<br>
+		
+	</div>
+	<div id = "accomodationRight" class="col-md-5">
+		<div class="row">
+<!--
+			<img src="img/accomodation/bathroom.jpg" alt="MainHouse">
+			<img src="img/accomodation/braai.jpg" alt="MainHouse">
+			<img src="img/accomodation/bathroom.jpg" alt="MainHouse">
+			<img src="img/ph.png" alt="MainHouse">
+			<img src="img/ph.png" alt="MainHouse">
+-->
+<!--
+			<div class="row">
+				<div class="col-md-6">
+					<img src="img/ph.png" alt="MainHouse">	
+				</div>
+				<div class="col-md-6">
+					<img src="img/ph.png" alt="MainHouse">	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<img src="img/ph.png" alt="MainHouse">
+				</div>
+				<div class="col-md-4">
+					<img src="img/ph.png" alt="MainHouse">
+				</div>
+				<div class="col-md-4">
+					<img src="img/ph.png" alt="MainHouse">
+				</div>
+			</div>
+-->
+		</div>
+<!--
+		<div class="row">
+			<h2>Second House</h2>
+			<p>Our second house is not close to the kitchen and braai area. Has a bathroom with a shower and aircon, maybe...
+			</p>
+			<div class="row">
+				<div class="col-md-6">
+					<img class="enlarge" src="img/ph.png" alt="SecondaryHouse">	
+				</div>
+				<div class="col-md-6">
+					<img class="enlarge" src="img/ph.png" alt="SecondaryHouse">	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<img class="enlarge" src="img/ph.png" alt="SecondaryHouse">
+				</div>
+				<div class="col-md-4">
+					<img class="enlarge" src="img/ph.png" alt="SecondaryHouse">
+				</div>
+				<div class="col-md-4">
+					<img class="enlarge" src="img/ph.png" alt="SecondaryHouse">
+				</div>
+			</div>
+		</div>
+-->
+
+	</div>
+</div>
+
+<script>
+	var folder = "img/accomodation/small/"
+	$.ajax({
+		url : folder,
+		success: function (data) {
+			$(data).find("a").attr("href", function (i, val) {
+				if( (val.match(/small\.(jpe?g|png|gif)$/)) ) {
+					$('#accomodationRight .row:first-of-type').append( "<img class= 'enlarge' src='" + folder + val +"'>" );
+				}
+			});
+		}
+	});
+//	$('#accomodationRight > .row:first() img').click(function(){
+//		openGallery('mhGallery','img/accomodation/mainhouse/');
+//	});
+//	$('#accomodationRight > .row:eq(1) img').click(function(){
+//		openGallery('huntingDialog','img/accomodation/secondhouse/');
+//	});
+</script>

@@ -1,0 +1,66 @@
+<div id = 'packages' class = 'row content-page'>
+	<div id = "packagesLeft" class="col-md-7">
+		<h1>Packages for 2017</h1>
+		<br>
+		<h3>Below is a list of the packages that we offer. If you want a quote on a personalized package of your choice you can contact us and we will compile a quote to your requirements.</h3>
+		<br>
+		<p>Disclaimer: Prices may differ from what you see on this page, but we try to keep them as up-to-date as possible.</p>
+		<br>
+		<div id="packagesImport"></div>
+	</div>
+	<div id="editor"></div>
+	<div id = "packagesRight" class="col-md-5 hidden-sm-down">
+		<div class="row">
+			<div class="col-md-12">
+				<img src="img/ph.png" alt="Trophy">	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+			<div class="col-md-3">
+				<img src="img/ph.png" alt="Trophy">
+			</div>
+		</div>
+		<br>
+		<p>To download this page of packages as a pdf, click <a id="pdfDownloader" >here</a>.</p>
+	</div>
+</div>
+<script>
+	$("#packagesImport").load("packs.html");
+	
+	$('#pdfDownloader').click(function(){
+		var doc = new jsPDF();
+		var specialElementHandlers = {
+			'#editor': function (element, renderer) {
+				return true;
+			}
+		};
+			doc.fromHTML($('#packagesImport').html(), 15, 15, {
+				'width': 170,
+				'elementHandlers': specialElementHandlers
+			});
+			doc.save('sample-file.pdf');
+	})
+</script>

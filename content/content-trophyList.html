@@ -1,0 +1,247 @@
+<div id = "trophyList" class = 'content-page'>
+	<div id="trophyListLeft" class="col-md-8">
+		<h3>Trophy pricelist for 2017</h3>
+		<br>
+		<br>
+		<h4>Plains Game Species</h4>
+		<table id="normal_table" class="table-condensed table-striped">
+			<thead>
+				<tr>
+					<th style="width:200px" data-field="species">Species</th>
+					<th style="width:300px" data-field="price">Price (&euro;)</th>
+				</tr>
+			</thead>
+		</table>
+		<br><br>
+		<h4>Big Five</h4>
+		<table id="big5_table" class="table-striped">
+			<thead>
+				<tr>
+					<th data-field="species">Species</th>
+					<th data-field="price">Price (&euro;)</th>
+				</tr>
+			</thead>
+		</table>
+		<a>See special notes</a>
+		<br><br>
+		<h4>Special Trophies</h4>
+		<table id="special_table" class="table-condensed table-striped">
+			<thead>
+				<tr>
+					<th data-field="species">Species</th>
+					<th data-field="price">Price (&euro;)</th>
+				</tr>
+			</thead>
+		</table>
+		<br><br>
+		<p>* Within 100 miles</p>
+		<p># Depends on acquisition</p>
+		<p style="font-weight:bold">NB: Wounded animals are payable in full</p>
+	</div>
+	<div id="trophyListRight" class="col-md-4">
+	</div>
+</div>
+<script>
+	var normal_jsondata = [
+		{
+			"species": "Baboon",
+			"price": "100",
+		},
+		{
+			"species": "Black Wildebeest",
+			"price": "700",
+		},
+		{
+			"species": "Blesbuck",
+			"price": "350",
+		},
+		{
+			"species": "Blue Wildebeest",
+			"price": "680",
+		},
+		{
+			"species": "Burchells Zebra",
+			"price": "750",
+		},
+		{
+			"species": "Bushbuck",
+			"price": "900",
+		},
+		{
+			"species": "Bushpig",
+			"price": "330",
+		},
+		{
+			"species": "Common Duiker",
+			"price": "200",
+		},
+		{
+			"species": "Eland",
+			"price": "1500",
+		},
+		{
+			"species": "Giraffe",
+			"price": "1700",
+		},
+		{
+			"species": "Impala",
+			"price": "290",
+		},
+		{
+			"species": "Klipspringer",
+			"price": "950",
+		},
+		{
+			"species": "Kudu",
+			"price": "1300",
+		},
+		{
+			"species": "Mountain Reedbuck",
+			"price": "550",
+		},
+		{
+			"species": "Nyala",
+			"price": "1550",
+		},
+		{
+			"species": "Oribi",
+			"price": "1350",
+		},
+		{
+			"species": "Ostrich",
+			"price": "350",
+		},
+		{
+			"species": "Oryx",
+			"price": "1200",
+		},
+		{
+			"species": "Red hartebeest",
+			"price": "750",
+		},
+		{
+			"species": "Roan",
+			"price": "6500",
+		},
+		{
+			"species": "Sable",
+			"price": "5500",
+		},
+		{
+			"species": "Steenbuck",
+			"price": "400",
+		},
+		{
+			"species": "Springbuck",
+			"price": "450",
+		},
+		{
+			"species": "Tsessebe",
+			"price": "1650",
+		},
+		{
+			"species": "Vaal Reedbuck",
+			"price": "1500",
+		},
+		{
+			"species": "Warthog",
+			"price": "220",
+		},
+		{
+			"species": "Waterbuck",
+			"price": "1350",
+		}
+	];
+	var big5_jsondata = [
+		{
+			"species": "Lion (Male or female)",
+			"price": "On request",
+		},
+		{
+			"species": "Elephant",
+			"price": "On request",
+		},
+		{
+			"species": "Leopard",
+			"price": "On request",
+		},
+		{
+			"species": "Buffalo male (Thulare Safaris)",
+			"price": "8500",
+		},		
+		{
+			"species": "Buffalo male (Zimbabwe, Botswana or Zambia)",
+			"price": "10500",
+		}
+	];
+	var special_jsondata = [
+		{
+			"species": "Aardwolf",
+			"price": "1200",
+		},
+		{
+			"species": "Brown Heyena",
+			"price": "2500",
+		},
+		{
+			"species": "Caracal",
+			"price": "1200",
+		},
+		{
+			"species": "Cerval cat",
+			"price": "1500",
+		},
+		{
+			"species": "Civet cat",
+			"price": "1200",
+		},
+		{
+			"species": "Crocodile",
+			"price": "4500",
+		},
+		{
+			"species": "Genet",
+			"price": "400",
+		},
+		{
+			"species": "Hippo",
+			"price": "5750",
+		},
+		{
+			"species": "Jackal",
+			"price": "150",
+		},
+		{
+			"species": "Monkey",
+			"price": "55",
+		},
+		{
+			"species": "Porcupine",
+			"price": "150",
+		},
+		{
+			"species": "Rock Hyrax",
+			"price": "75",
+		},
+	];
+	$('#normal_table').bootstrapTable({data:normal_jsondata});
+	$('#big5_table').bootstrapTable({data:big5_jsondata});
+	$('#special_table').bootstrapTable({data:special_jsondata});
+	var folder = "img/trophies/small/";
+	$.ajax({
+		url : folder,
+		success: function (data) {
+			$(data).find("a").attr("href", function (i, val) {
+				if( (val.match(/\.(jpe?g|png|gif)$/)) ) {
+					$('#trophyListRight').append( "<img class= 'enlarge' src='"+ folder + val +"'>" );
+				}
+			});
+		}
+	});
+//	$('#accomodationRight > .row:first() img').click(function(){
+//		openGallery('mhGallery','img/accomodation/mainhouse/');
+//	});
+//	$('#accomodationRight > .row:eq(1) img').click(function(){
+//		openGallery('huntingDialog','img/accomodation/secondhouse/');
+//	});
+</script>
